@@ -21,7 +21,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const EditScreenInfo = ({ path }: { path: string }) => {
+interface IProps {
+  path: string;
+}
+
+const EditScreenInfo = (props: IProps) => {
+  const { path } = props;
+
   return (
     <View>
       <View style={styles.getStartedContainer}>

@@ -1,6 +1,6 @@
 import { EmojiHappy } from 'iconsax-react-native';
 import { View } from 'react-native';
-import IconsaxIcon from '../lib/IconsaxIcon';
+import IconsaxIcon from '../../lib/IconsaxIcon';
 
 const TabHomeScreen = () => {
   return (

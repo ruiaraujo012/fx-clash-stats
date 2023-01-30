@@ -23,7 +23,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const NotFoundScreen = ({ navigation }: RootStackScreenProps<'NotFound'>) => {
+interface IProps {
+  rootStackScreenProps: RootStackScreenProps<'NotFound'>;
+}
+
+const NotFoundScreen = (props: IProps) => {
+  const {
+    rootStackScreenProps: { navigation },
+  } = props;
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>This screen doesnt exist.</Text>

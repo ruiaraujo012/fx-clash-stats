@@ -7,7 +7,7 @@ interface IProps {
 const IconsaxIcon = (props: IProps & IconProps) => {
   const { Icon, ...other } = props;
 
-  return <Icon size={20} variant='Bulk' {...other} />;
+  return <Icon size={25} variant='Bulk' {...other} />;
 };
 
 export default IconsaxIcon;

@@ -4,21 +4,20 @@
  *
  */
 import * as React from 'react';
-import { ColorSchemeName } from 'react-native';
-import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 
+import { useColorScheme } from 'react-native';
 import LinkingConfiguration from './linkingConfiguration';
 import RootStackNavigator from './RootStackNavigator';
+import customTheme from '../theme/config';
 
-interface IProps {
-  colorScheme: ColorSchemeName;
-}
+const Navigation = () => {
+  const colorScheme = useColorScheme();
 
-const Navigation = (props: IProps) => {
-  const { colorScheme } = props;
+  const { light, dark } = customTheme;
 
   return (
-    <NavigationContainer linking={LinkingConfiguration} theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <NavigationContainer linking={LinkingConfiguration} theme={colorScheme === 'dark' ? dark : light}>
       <RootStackNavigator />
     </NavigationContainer>
   );

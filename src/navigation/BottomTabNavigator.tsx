@@ -1,7 +1,8 @@
-import { EmojiHappy, InfoCircle } from 'iconsax-react-native';
-import { Pressable, useColorScheme } from 'react-native';
+import { Cup, EmojiHappy, InfoCircle } from 'iconsax-react-native';
+import { Pressable } from 'react-native';
 import { RootTabParamList, RootTabScreenProps } from '../types/navigation';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useTheme } from '@react-navigation/native';
 import IconsaxIcon from '../lib/IconsaxIcon';
 import TabCompareDriversScreen from '../screens/tabs/TabCompareDriversScreen';
 import TabComparePartsScreen from '../screens/tabs/TabComparePartsScreen';
@@ -16,24 +17,32 @@ import TabPartsScreen from '../screens/tabs/TabPartsScreen';
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 const BottomTabNavigator = () => {
-  // TODO: Use colors from lib
-  const colorScheme = useColorScheme();
+  const { colors } = useTheme();
 
   return (
     <BottomTab.Navigator
       initialRouteName='Home'
-      screenOptions={
-        {
-          // TODO: Use colors from lib
-          // tabBarActiveTintColor: Colors[colorScheme].tint,
-        }
-      }
+      screenOptions={{
+        tabBarActiveTintColor: colors.primary,
+        tabBarIconStyle: {
+          marginTop: 5,
+        },
+        tabBarLabelStyle: {
+          paddingBottom: 10,
+        },
+        tabBarStyle: {
+          // (iconMarginTop) + (tabBarLabelPaddingBottom) + (iconsaxSize) + (extraSpace)
+          minHeight: 10 + 5 + 25 + 20,
+        },
+      }}
     >
       <BottomTab.Screen
         component={TabDriversScreen}
         name='Drivers'
         options={{
-          tabBarIcon: ({ color }) => <IconsaxIcon Icon={EmojiHappy} color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <IconsaxIcon Icon={EmojiHappy} color={color} size={focused ? 30 : undefined} />
+          ),
           title: 'Drivers',
         }}
       />
@@ -42,7 +51,9 @@ const BottomTabNavigator = () => {
         component={TabCompareDriversScreen}
         name='CompareDrivers'
         options={{
-          tabBarIcon: ({ color }) => <IconsaxIcon Icon={EmojiHappy} color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <IconsaxIcon Icon={EmojiHappy} color={color} size={focused ? 30 : undefined} />
+          ),
           title: 'Compare drivers',
         }}
       />
@@ -58,11 +69,9 @@ const BottomTabNavigator = () => {
                 opacity: pressed ? 0.5 : 1,
               })}
             >
-              {/* // TODO: Use colors from lib */}
-              {/* <IconsaxIcon Icon={InfoCircle} color={Colors[colorScheme].text} /> */}
               <IconsaxIcon
                 Icon={InfoCircle}
-                color='red'
+                color={colors.text}
                 // eslint-disable-next-line react-native/no-inline-styles
                 style={{
                   marginRight: 15,
@@ -70,7 +79,7 @@ const BottomTabNavigator = () => {
               />
             </Pressable>
           ),
-          tabBarIcon: ({ color }) => <IconsaxIcon Icon={EmojiHappy} color={color} />,
+          tabBarIcon: ({ color, focused }) => <IconsaxIcon Icon={Cup} color={color} size={focused ? 30 : undefined} />,
           title: 'Home',
         })}
       />
@@ -79,7 +88,9 @@ const BottomTabNavigator = () => {
         component={TabComparePartsScreen}
         name='CompareParts'
         options={{
-          tabBarIcon: ({ color }) => <IconsaxIcon Icon={EmojiHappy} color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <IconsaxIcon Icon={EmojiHappy} color={color} size={focused ? 30 : undefined} />
+          ),
           title: 'Compare parts',
         }}
       />
@@ -88,7 +99,9 @@ const BottomTabNavigator = () => {
         component={TabPartsScreen}
         name='Parts'
         options={{
-          tabBarIcon: ({ color }) => <IconsaxIcon Icon={EmojiHappy} color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <IconsaxIcon Icon={EmojiHappy} color={color} size={focused ? 30 : undefined} />
+          ),
           title: 'Parts',
         }}
       />

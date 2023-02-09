@@ -44,9 +44,9 @@
     "typescript": "^4.6.3"
   },
   "engines": {
-    "npm": "Please use yarn instead of npm.",
-    "yarn": ">= 1.0.0",
-    "pnpm": "Please use yarn instead of pnpm."
+    "npm": "Please use pnpm instead of npm.",
+    "yarn": "Please use pnpm instead of yarn.",
+    "pnpm": ">= 7.0.0"
   },
   "private": true
 }

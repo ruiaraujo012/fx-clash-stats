@@ -1,9 +1,9 @@
 import './src/i18n/i18n';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { StatusBar } from 'expo-status-bar';
 
-import Navigation from './src/navigation/Navigation';
+import { SettingsProvider } from './src/context/SettingsContext';
+import Root from './src/Root';
 import useCachedResources from './src/hooks/useCachedResources';
 
 const App = () => {
@@ -15,9 +15,9 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
-      <Navigation />
-
-      <StatusBar />
+      <SettingsProvider>
+        <Root />
+      </SettingsProvider>
     </SafeAreaProvider>
   );
 };

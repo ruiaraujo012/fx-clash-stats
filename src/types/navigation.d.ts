@@ -2,9 +2,15 @@
  * Learn more about using TypeScript with React Navigation:
  * https://reactnavigation.org/docs/typescript/
  */
-
+import '@react-navigation/native';
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
-import { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native';
+import {
+  CompositeScreenProps,
+  NavigationProp,
+  NavigatorScreenParams,
+  Theme,
+  DefaultTheme,
+} from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 declare global {
@@ -24,7 +30,7 @@ export type RootTabParamList = {
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   // TODO: Add modals/dialogs
-  Modal: undefined;
+  Modal: { paramExample: number };
   NotFound: undefined;
 };
 

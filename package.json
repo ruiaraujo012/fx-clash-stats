@@ -23,6 +23,8 @@
     "expo-status-bar": "~1.4.2",
     "i18next": "^22.4.9",
     "iconsax-react-native": "^0.0.8",
+    "immer": "^9.0.19",
+    "lodash.merge": "^4.6.2",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-i18next": "^12.1.4",
@@ -35,6 +37,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@expo/ngrok": "^4.1.0",
+    "@types/lodash.merge": "^4.6.7",
     "@types/react": "~18.0.14",
     "@types/react-native": "~0.70.6",
     "eslint": "^8.33.0",

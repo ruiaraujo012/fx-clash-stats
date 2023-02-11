@@ -64,7 +64,11 @@ const BottomTabNavigator = () => {
         options={({ navigation }: RootTabScreenProps<'Home'>) => ({
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate('Modal')}
+              onPress={() =>
+                navigation.navigate('Modal', {
+                  paramExample: Date.now(),
+                })
+              }
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}

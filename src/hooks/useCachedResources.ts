@@ -11,10 +11,11 @@ const useCachedResources = () => {
       try {
         SplashScreen.preventAutoHideAsync();
 
-        // TODO: Should this font be loaded? or should use the font from react-native-paper?
         // Load fonts
         await Font.loadAsync({
-          'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf'),
+          Poppins: require('../assets/fonts/Poppins-Regular.ttf'),
+          'Poppins-Bold': require('../assets/fonts/Poppins-Bold.ttf'),
+          'Poppins-Light': require('../assets/fonts/Poppins-Light.ttf'),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service

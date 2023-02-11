@@ -1,6 +1,6 @@
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../types/navigation';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-
-import { RootStackScreenProps } from '../types/navigation';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,13 +24,11 @@ const styles = StyleSheet.create({
 });
 
 interface IProps {
-  rootStackScreenProps: RootStackScreenProps<'NotFound'>;
+  navigation: NativeStackNavigationProp<RootStackParamList, 'NotFound', undefined>;
 }
 
 const NotFoundScreen = (props: IProps) => {
-  const {
-    rootStackScreenProps: { navigation },
-  } = props;
+  const { navigation } = props;
 
   return (
     <View style={styles.container}>

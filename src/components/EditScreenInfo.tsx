@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-
-import { MonoText } from './StyledText';
+import Typography from './ui/Typography';
 
 const styles = StyleSheet.create({
   codeHighlightContainer: {
@@ -34,7 +33,7 @@ const EditScreenInfo = (props: IProps) => {
         <Text style={styles.getStartedText}>Open up the code for this screen:</Text>
 
         <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-          <MonoText>{path}</MonoText>
+          <Typography>{path}</Typography>
         </View>
 
         <Text style={styles.getStartedText}>

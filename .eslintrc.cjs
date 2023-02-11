@@ -14,8 +14,13 @@ module.exports = {
   plugins: ['react-native'],
   rules: {
     'react-native/no-inline-styles': 2,
-    'react-native/no-raw-text': 2,
-    'react-native/no-unused-styles': 2,
+    'react-native/no-raw-text': [
+      'error',
+      {
+        skip: ['Typography'],
+      },
+    ],
+    'react-native/no-unused-styles': ['warn'],
     'react-native/sort-styles': [
       'error',
       'asc',

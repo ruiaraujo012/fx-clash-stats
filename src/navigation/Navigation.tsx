@@ -6,15 +6,20 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
+import { getReactNavigationTheme } from '../context/theme/palette';
 import { useTheme } from '../context/theme/ThemeContext';
 import LinkingConfiguration from './linkingConfiguration';
 import RootStackNavigator from './RootStackNavigator';
 
 const Navigation = () => {
-  const { reactNavigationTheme } = useTheme();
+  const {
+    theme: {
+      palette: { mode },
+    },
+  } = useTheme();
 
   return (
-    <NavigationContainer linking={LinkingConfiguration} theme={reactNavigationTheme}>
+    <NavigationContainer linking={LinkingConfiguration} theme={getReactNavigationTheme(mode)}>
       <RootStackNavigator />
     </NavigationContainer>
   );

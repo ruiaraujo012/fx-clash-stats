@@ -55,6 +55,9 @@ export interface IPalette {
   background: IPaletteBackground;
 }
 
+export type TColor = keyof IPalette;
+export type TPaletteColor = keyof Pick<IPalette, 'error' | 'info' | 'primary' | 'secondary' | 'success' | 'warning'>;
+
 export const defaultLightPalette: IPalette = {
   action: {
     activatedOpacity: 0.12,

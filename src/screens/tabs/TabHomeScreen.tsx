@@ -11,6 +11,7 @@ const TabHomeScreen = () => {
   const {
     theme: {
       palette: { mode, primary, background, secondary },
+      shadows,
     },
   } = useTheme();
 
@@ -95,17 +96,20 @@ const TabHomeScreen = () => {
           {/* TODO: Change this to settings */}
           <Pressable
             onPress={() => i18n.changeLanguage(i18n.language === LANGUAGES.EN_US ? LANGUAGES.PT_PT : LANGUAGES.EN_US)}
-            // eslint-disable-next-line react-native/no-inline-styles
-            style={{
-              alignItems: 'center',
-              backgroundColor: primary.main,
-              borderRadius: 10,
-              margin: 10,
-              display: 'flex',
-              flexDirection: 'column',
-              padding: 15,
-              justifyContent: 'center',
-            }}
+            style={[
+              // eslint-disable-next-line react-native/no-inline-styles
+              {
+                alignItems: 'center',
+                backgroundColor: primary.main,
+                borderRadius: 10,
+                margin: 10,
+                display: 'flex',
+                flexDirection: 'column',
+                padding: 15,
+                justifyContent: 'center',
+              },
+              shadows[5],
+            ]}
           >
             <Typography variant='button'>Change Language</Typography>
           </Pressable>

@@ -10,7 +10,7 @@ import Typography from '../../components/ui/Typography';
 const TabHomeScreen = () => {
   const {
     theme: {
-      palette: { mode, primary, background },
+      palette: { mode, primary, background, secondary },
     },
   } = useTheme();
 
@@ -39,7 +39,6 @@ const TabHomeScreen = () => {
           <Typography>{t('helloWorld')}</Typography>
           <Typography>Settings: {settings.themeMode}</Typography>
           <Typography>Palette: {mode}</Typography>
-          <Typography>Background: {background}</Typography>
 
           {/* TODO: Change this to settings */}
           <Pressable
@@ -47,7 +46,7 @@ const TabHomeScreen = () => {
             // eslint-disable-next-line react-native/no-inline-styles
             style={{
               alignItems: 'center',
-              backgroundColor: 'red',
+              backgroundColor: secondary.main,
               borderRadius: 10,
               margin: 10,
               display: 'flex',
@@ -65,7 +64,7 @@ const TabHomeScreen = () => {
             style={{
               alignItems: 'center',
               margin: 10,
-              backgroundColor: 'red',
+              backgroundColor: primary.main,
               borderRadius: 10,
               display: 'flex',
               flexDirection: 'column',
@@ -73,7 +72,7 @@ const TabHomeScreen = () => {
               justifyContent: 'center',
             }}
           >
-            <Typography>Light</Typography>
+            <Typography variant='button'>Light</Typography>
           </Pressable>
 
           <Pressable
@@ -81,7 +80,7 @@ const TabHomeScreen = () => {
             // eslint-disable-next-line react-native/no-inline-styles
             style={{
               alignItems: 'center',
-              backgroundColor: 'red',
+              backgroundColor: primary.main,
               margin: 10,
               borderRadius: 10,
               display: 'flex',
@@ -90,7 +89,7 @@ const TabHomeScreen = () => {
               justifyContent: 'center',
             }}
           >
-            <Typography>System</Typography>
+            <Typography variant='button'>System</Typography>
           </Pressable>
 
           {/* TODO: Change this to settings */}
@@ -99,7 +98,7 @@ const TabHomeScreen = () => {
             // eslint-disable-next-line react-native/no-inline-styles
             style={{
               alignItems: 'center',
-              backgroundColor: 'red',
+              backgroundColor: primary.main,
               borderRadius: 10,
               margin: 10,
               display: 'flex',
@@ -108,7 +107,7 @@ const TabHomeScreen = () => {
               justifyContent: 'center',
             }}
           >
-            <Typography>Change Language</Typography>
+            <Typography variant='button'>Change Language</Typography>
           </Pressable>
 
           <IconsaxIcon Icon={EmojiHappy} color={primary.main} size={54} />

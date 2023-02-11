@@ -20,7 +20,7 @@ const Root = () => {
     <ThemeProvider mode={mode}>
       <Navigation />
 
-      <StatusBar />
+      <StatusBar style={mode === 'dark' ? 'light' : 'dark'} />
     </ThemeProvider>
   );
 };

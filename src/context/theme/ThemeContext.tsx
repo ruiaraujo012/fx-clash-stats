@@ -1,7 +1,7 @@
-import { DarkTheme, DefaultTheme, Theme as ReactNavigationTheme } from '@react-navigation/native';
 import { ITheme, createTheme } from './theme';
+import { Theme as ReactNavigationTheme } from '@react-navigation/native';
 import { ReactNode, createContext, useContext, useEffect, useMemo, useReducer } from 'react';
-import { TPaletteMode } from './palette';
+import { TPaletteMode, getReactNavigationTheme } from './palette';
 import _merge from 'lodash.merge';
 import produce from 'immer';
 
@@ -71,14 +71,7 @@ const ThemeProvider = (props: TThemeProviderProps) => {
     });
   }, [mode]);
 
-  const reactNavigationTheme = useMemo(() => {
-    return _merge(mode === 'light' ? DefaultTheme : DarkTheme, {
-      colors: {
-        primary: theme.palette.primary.main,
-      },
-      dark: mode === 'dark',
-    } as ReactNavigationTheme);
-  }, [mode, theme.palette]);
+  const reactNavigationTheme = useMemo(() => getReactNavigationTheme(mode), [mode]);
 
   // TODO: Remove this comment if dispatch is needed
   // const value = useMemo(() => ({ dispatch, reactNavigationTheme, theme }), [theme, dispatch, reactNavigationTheme]);

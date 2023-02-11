@@ -1,3 +1,6 @@
+import { DarkTheme, DefaultTheme, Theme as ReactNavigationTheme } from '@react-navigation/native';
+import _merge from 'lodash.merge';
+
 export type TPaletteMode = 'dark' | 'light';
 
 export interface ICommonColors {
@@ -12,13 +15,13 @@ export interface IPaletteColor {
   contrastText: string;
 }
 
-export interface IText {
+export interface IPaletteText {
   primary: string;
   secondary: string;
   disabled: string;
 }
 
-export interface IAction {
+export interface IPaletteAction {
   active: string;
   hover: string;
   hoverOpacity: number;
@@ -32,6 +35,11 @@ export interface IAction {
   activatedOpacity: number;
 }
 
+export interface IPaletteBackground {
+  default: string;
+  paper: string;
+}
+
 export interface IPalette {
   common: ICommonColors;
   mode: TPaletteMode;
@@ -41,10 +49,10 @@ export interface IPalette {
   warning: IPaletteColor;
   info: IPaletteColor;
   success: IPaletteColor;
-  text: IText;
+  text: IPaletteText;
   divider: string;
-  action: IAction;
-  background: string;
+  action: IPaletteAction;
+  background: IPaletteBackground;
 }
 
 export const defaultLightPalette: IPalette = {
@@ -61,50 +69,53 @@ export const defaultLightPalette: IPalette = {
     selected: 'rgba(0,0,0,0.08)',
     selectedOpacity: 0.08,
   },
-  background: '#f8fafc',
+  background: {
+    default: '#f5f5f5',
+    paper: '#e5e5e5',
+  },
   common: {
-    black: '#18181b',
+    black: '#171717',
     white: '#fafafa',
   },
   divider: 'rgba(0,0,0,0.12)',
   error: {
-    contrastText: '#ffffff',
+    contrastText: '#fff',
     dark: '#9f1239',
     light: '#fb7185',
     main: '#e11d48',
   },
   info: {
-    contrastText: '#000000',
+    contrastText: '#000',
     dark: '#075985',
     light: '#38bdf8',
     main: '#0284c7',
   },
   mode: 'light',
   primary: {
-    contrastText: '#ffffff',
+    contrastText: '#fff',
     dark: '#991b1b',
     light: '#f87171',
     main: '#dc2626',
   },
   secondary: {
-    contrastText: '#ffffff',
+    contrastText: '#fff',
     dark: '#27272a',
     light: '#a1a1aa',
     main: '#52525b',
   },
   success: {
-    contrastText: '#000000',
+    contrastText: '#000',
     dark: '#166534',
     light: '#4ade80',
     main: '#16a34a',
   },
   text: {
-    disabled: 'rgba(15,23,42,0.87)',
-    primary: '#0f172a',
-    secondary: '#475569',
+    disabled: 'rgba(23,23,23,0.87)',
+    primary: '#171717',
+    secondary: '#525252',
   },
   warning: {
-    contrastText: '#000000',
+    contrastText: '#000',
     dark: '#9a3412',
     light: '#fb923c',
     main: '#ea580c',
@@ -125,50 +136,53 @@ export const defaultDarkPalette: IPalette = {
     selected: 'rgba(0,0,0,0.08)',
     selectedOpacity: 0.08,
   },
-  background: '#0f172a',
+  background: {
+    default: '#262626',
+    paper: '#171717',
+  },
   common: {
-    black: '#18181b',
+    black: '#171717',
     white: '#fafafa',
   },
   divider: 'rgba(255,255,255,0.12)',
   error: {
-    contrastText: '#ffffff',
+    contrastText: '#fff',
     dark: '#9f1239',
     light: '#fb7185',
     main: '#e11d48',
   },
   info: {
-    contrastText: '#000000',
+    contrastText: '#000',
     dark: '#075985',
     light: '#38bdf8',
     main: '#0284c7',
   },
   mode: 'dark',
   primary: {
-    contrastText: '#ffffff',
+    contrastText: '#fff',
     dark: '#991b1b',
     light: '#f87171',
     main: '#dc2626',
   },
   secondary: {
-    contrastText: '#ffffff',
-    dark: '#27272a',
-    light: '#a1a1aa',
-    main: '#52525b',
+    contrastText: '#fff',
+    dark: '#46464e',
+    light: '#9f9fa9',
+    main: '#71717a',
   },
   success: {
-    contrastText: '#000000',
+    contrastText: '#000',
     dark: '#166534',
     light: '#4ade80',
     main: '#16a34a',
   },
   text: {
-    disabled: 'rgba(248,250,252,0.87)',
-    primary: '#f8fafc',
-    secondary: '#cbd5e1',
+    disabled: 'rgba(250, 250, 250,0.87)',
+    primary: '#fafafa',
+    secondary: '#d4d4d4',
   },
   warning: {
-    contrastText: '#000000',
+    contrastText: '#000',
     dark: '#9a3412',
     light: '#fb923c',
     main: '#ea580c',
@@ -181,4 +195,30 @@ export const getDefaultPalette = (mode: TPaletteMode): IPalette => {
   }
 
   return defaultLightPalette;
+};
+
+export const getReactNavigationTheme = (mode: TPaletteMode): ReactNavigationTheme => {
+  if (mode === 'dark') {
+    return _merge(DarkTheme, {
+      colors: {
+        background: defaultDarkPalette.background.default,
+        border: defaultDarkPalette.divider,
+        card: defaultDarkPalette.background.paper,
+        primary: defaultDarkPalette.primary.main,
+        text: defaultDarkPalette.text.primary,
+      },
+      dark: true,
+    } as ReactNavigationTheme);
+  }
+
+  return _merge(DefaultTheme, {
+    colors: {
+      background: defaultLightPalette.background.default,
+      border: defaultLightPalette.divider,
+      card: defaultLightPalette.background.paper,
+      primary: defaultLightPalette.primary.main,
+      text: defaultLightPalette.text.primary,
+    },
+    dark: false,
+  } as ReactNavigationTheme);
 };

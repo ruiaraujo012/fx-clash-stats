@@ -1,6 +1,7 @@
 import { IPalette } from './palette';
 
-type TElevation =
+export type TElevation =
+  | 0
   | 1
   | 2
   | 3
@@ -37,13 +38,24 @@ interface IShadow {
   elevation: number;
 }
 
-export type TShadows = Record<TElevation, IShadow> & Record<'0', object>;
+export type TShadows = {
+  [key in TElevation]: IShadow;
+};
 
 export const getDefaultShadows = (palette: IPalette): TShadows => {
   const shadowColor = palette.mode === 'light' ? palette.common.black : palette.common.white;
 
   return {
-    '0': {},
+    '0': {
+      elevation: 0,
+      shadowColor,
+      shadowOffset: {
+        height: 0,
+        width: 0,
+      },
+      shadowOpacity: 0,
+      shadowRadius: 0,
+    },
     '1': {
       elevation: 1,
       shadowColor,

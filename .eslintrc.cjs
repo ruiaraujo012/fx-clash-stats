@@ -17,7 +17,7 @@ module.exports = {
     'react-native/no-raw-text': [
       'error',
       {
-        skip: ['Typography'],
+        skip: ['Typography', 'Button'],
       },
     ],
     'react-native/no-unused-styles': ['warn'],

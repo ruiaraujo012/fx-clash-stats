@@ -1,7 +1,6 @@
 import { ITheme, createTheme } from './theme';
-import { Theme as ReactNavigationTheme } from '@react-navigation/native';
 import { ReactNode, createContext, useContext, useEffect, useMemo, useReducer } from 'react';
-import { TPaletteMode, getReactNavigationTheme } from './palette';
+import { TPaletteMode } from './palette';
 import _merge from 'lodash.merge';
 import produce from 'immer';
 
@@ -25,8 +24,8 @@ interface TThemeProviderProps {
  */
 const ThemeContext = createContext<
   // TODO: Remove this comment if actions needed
-  // { theme: ITheme; reactNavigationTheme: ReactNavigationTheme; dispatch: TThemeDispatch } | undefined
-  { theme: ITheme; reactNavigationTheme: ReactNavigationTheme } | undefined
+  // { theme: ITheme;  dispatch: TThemeDispatch } | undefined
+  { theme: ITheme } | undefined
 >(undefined);
 
 ThemeContext.displayName = 'ThemeContext';
@@ -71,11 +70,9 @@ const ThemeProvider = (props: TThemeProviderProps) => {
     });
   }, [mode]);
 
-  const reactNavigationTheme = useMemo(() => getReactNavigationTheme(mode), [mode]);
-
   // TODO: Remove this comment if dispatch is needed
-  // const value = useMemo(() => ({ dispatch, reactNavigationTheme, theme }), [theme, dispatch, reactNavigationTheme]);
-  const value = useMemo(() => ({ reactNavigationTheme, theme }), [theme, reactNavigationTheme]);
+  // const value = useMemo(() => ({ dispatch, theme }), [theme, dispatch, reactNavigationTheme]);
+  const value = useMemo(() => ({ theme }), [theme]);
 
   /**
    * Render

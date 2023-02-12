@@ -22,7 +22,7 @@ module.exports = {
     ],
     'react-native/no-unused-styles': ['warn'],
     'react-native/sort-styles': [
-      'error',
+      'warn',
       'asc',
       {
         ignoreClassNames: false,

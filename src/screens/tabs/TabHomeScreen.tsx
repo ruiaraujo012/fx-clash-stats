@@ -4,7 +4,7 @@ import { Pressable, ScrollView, View } from 'react-native';
 import { useSettings } from '../../context/SettingsContext';
 import { useTheme } from '../../context/theme/ThemeContext';
 import { useTranslation } from 'react-i18next';
-import Button from '../../components/ui/Button';
+import Button from '../../components/ui/button/Button';
 import IconsaxIcon from '../../lib/IconsaxIcon';
 import Typography from '../../components/ui/Typography';
 

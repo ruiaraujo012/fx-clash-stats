@@ -41,11 +41,11 @@ export const buttonStyles = (props: IStylesProps) => {
     buttonVariantText: {
       color: palette[color].main,
     },
+    containedVariant: {
+      backgroundColor: pressed ? palette[color].light : palette[color].main,
+    },
     container: {
       flexDirection: fullWidth ? 'column' : 'row',
-    },
-    elevatedVariant: {
-      backgroundColor: pressed ? palette[color].light : palette[color].main,
     },
     outlinedVariant: {
       backgroundColor: pressed ? hexToRGBA(palette[color].main, palette.action.hoverOpacity) : 'transparent',
@@ -62,5 +62,5 @@ export const buttonStyles = (props: IStylesProps) => {
   });
 };
 
-export type TButtonVariant = 'outlined' | 'text' | 'elevated';
+export type TButtonVariant = 'outlined' | 'text' | 'contained';
 export type TButtonSize = 'small' | 'medium' | 'large';

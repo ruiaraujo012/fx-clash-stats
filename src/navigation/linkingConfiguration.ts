@@ -11,37 +11,38 @@ import { RootStackParamList } from '../types/navigation';
 const linking: LinkingOptions<RootStackParamList> = {
   config: {
     screens: {
-      Modal: 'modal',
-      NotFound: '*',
-      Root: {
+      modal: 'modal',
+      notFound: '*',
+      root: {
         screens: {
-          CompareDrivers: {
+          compareDrivers: {
             screens: {
               TabCompareDriversScreen: 'compare-drivers',
             },
           },
-          CompareParts: {
+          compareParts: {
             screens: {
               TabComparePartsScreen: 'compare-parts',
             },
           },
-          Drivers: {
+          drivers: {
             screens: {
               TabDriversScreen: 'drivers',
             },
           },
-          Home: {
+          home: {
             screens: {
               TabHomeScreen: 'home',
             },
           },
-          Parts: {
+          parts: {
             screens: {
               TabPartsScreen: 'parts',
             },
           },
         },
       },
+      settings: 'settings',
     },
   },
   prefixes: [Linking.createURL('/')],

@@ -22,10 +22,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const ModalScreen = (props: NativeStackScreenProps<RootStackParamList, 'Modal'>) => {
+const ModalScreen = (props: NativeStackScreenProps<RootStackParamList, 'modal'>) => {
   const { route } = props;
-
-  console.log('route >> ', route);
 
   return (
     <View style={styles.container}>

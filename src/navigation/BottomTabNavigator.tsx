@@ -1,14 +1,17 @@
-import { Cup, EmojiHappy, InfoCircle } from 'iconsax-react-native';
+import { Cup, EmojiHappy, InfoCircle, Setting2 } from 'iconsax-react-native';
 import { Pressable } from 'react-native';
-import { RootTabParamList, RootTabScreenProps } from '../types/navigation';
+import { RootTabParamList } from '../types/navigation';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useTheme } from '@react-navigation/native';
+import { normalizeKey } from '../i18n/helpers';
+import { useTheme } from '../context/theme/ThemeContext';
+import { useTranslation } from 'react-i18next';
 import IconsaxIcon from '../lib/IconsaxIcon';
 import TabCompareDriversScreen from '../screens/tabs/TabCompareDriversScreen';
 import TabComparePartsScreen from '../screens/tabs/TabComparePartsScreen';
 import TabDriversScreen from '../screens/tabs/TabDriversScreen';
 import TabHomeScreen from '../screens/tabs/TabHomeScreen';
 import TabPartsScreen from '../screens/tabs/TabPartsScreen';
+import Typography from '../components/ui/Typography';
 
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
@@ -17,96 +20,108 @@ import TabPartsScreen from '../screens/tabs/TabPartsScreen';
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 const BottomTabNavigator = () => {
-  const { colors } = useTheme();
+  const {
+    theme: { palette },
+  } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <BottomTab.Navigator
-      initialRouteName='Home'
-      screenOptions={{
-        tabBarActiveTintColor: colors.primary,
-        tabBarIconStyle: {
-          marginTop: 5,
+      initialRouteName='home'
+      screenOptions={({ navigation }) => ({
+        headerLeft: () => (
+          // TODO: Remove this */
+          <Pressable
+            onPress={() =>
+              navigation.navigate('modal', {
+                paramExample: Date.now(),
+              })
+            }
+            style={({ pressed }) => ({
+              opacity: pressed ? 0.5 : 1,
+            })}
+          >
+            <IconsaxIcon
+              Icon={InfoCircle}
+              color={palette.text.primary}
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{
+                marginLeft: 15,
+              }}
+            />
+          </Pressable>
+        ),
+        headerRight: () => (
+          <Pressable
+            onPress={() => navigation.navigate('settings')}
+            style={({ pressed }) => ({
+              opacity: pressed ? 0.5 : 1,
+            })}
+          >
+            <IconsaxIcon
+              Icon={Setting2}
+              color={palette.secondary.main}
+              size={30}
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{
+                marginRight: 15,
+              }}
+            />
+          </Pressable>
+        ),
+        headerTitle: (props) => {
+          // eslint-disable-next-line react/prop-types
+          return <Typography>{t(normalizeKey(props.children))}</Typography>;
         },
-        tabBarLabelStyle: {
-          paddingBottom: 10,
-        },
-        tabBarStyle: {
-          // (iconMarginTop) + (tabBarLabelPaddingBottom) + (iconsaxSize) + (extraSpace)
-          minHeight: 10 + 5 + 25 + 20,
-        },
-      }}
+        tabBarActiveTintColor: palette.primary.main,
+        tabBarShowLabel: false,
+      })}
     >
       <BottomTab.Screen
         component={TabDriversScreen}
-        name='Drivers'
+        name='drivers'
         options={{
           tabBarIcon: ({ color, focused }) => (
             <IconsaxIcon Icon={EmojiHappy} color={color} size={focused ? 30 : undefined} />
           ),
-          title: 'Drivers',
         }}
       />
 
       <BottomTab.Screen
         component={TabCompareDriversScreen}
-        name='CompareDrivers'
+        name='compareDrivers'
         options={{
           tabBarIcon: ({ color, focused }) => (
             <IconsaxIcon Icon={EmojiHappy} color={color} size={focused ? 30 : undefined} />
           ),
-          title: 'Compare drivers',
         }}
       />
 
       <BottomTab.Screen
         component={TabHomeScreen}
-        name='Home'
-        options={({ navigation }: RootTabScreenProps<'Home'>) => ({
-          headerRight: () => (
-            <Pressable
-              onPress={() =>
-                navigation.navigate('Modal', {
-                  paramExample: Date.now(),
-                })
-              }
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            >
-              <IconsaxIcon
-                Icon={InfoCircle}
-                color={colors.text}
-                // eslint-disable-next-line react-native/no-inline-styles
-                style={{
-                  marginRight: 15,
-                }}
-              />
-            </Pressable>
-          ),
+        name='home'
+        options={{
           tabBarIcon: ({ color, focused }) => <IconsaxIcon Icon={Cup} color={color} size={focused ? 30 : undefined} />,
-          title: 'Home',
-        })}
+        }}
       />
 
       <BottomTab.Screen
         component={TabComparePartsScreen}
-        name='CompareParts'
+        name='compareParts'
         options={{
           tabBarIcon: ({ color, focused }) => (
             <IconsaxIcon Icon={EmojiHappy} color={color} size={focused ? 30 : undefined} />
           ),
-          title: 'Compare parts',
         }}
       />
 
       <BottomTab.Screen
         component={TabPartsScreen}
-        name='Parts'
+        name='parts'
         options={{
           tabBarIcon: ({ color, focused }) => (
             <IconsaxIcon Icon={EmojiHappy} color={color} size={focused ? 30 : undefined} />
           ),
-          title: 'Parts',
         }}
       />
     </BottomTab.Navigator>

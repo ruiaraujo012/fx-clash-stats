@@ -20,18 +20,19 @@ declare global {
 }
 
 export type RootTabParamList = {
-  Drivers: undefined;
-  CompareDrivers: undefined;
-  Home: undefined;
-  Parts: undefined;
-  CompareParts: undefined;
+  drivers: undefined;
+  compareDrivers: undefined;
+  home: undefined;
+  parts: undefined;
+  compareParts: undefined;
 };
 
 export type RootStackParamList = {
-  Root: NavigatorScreenParams<RootTabParamList> | undefined;
-  // TODO: Add modals/dialogs
-  Modal: { paramExample: number };
-  NotFound: undefined;
+  root: NavigatorScreenParams<RootTabParamList> | undefined;
+  // TODO: Add modals/dialogs/pages
+  modal: { paramExample: number };
+  notFound: undefined;
+  settings: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<

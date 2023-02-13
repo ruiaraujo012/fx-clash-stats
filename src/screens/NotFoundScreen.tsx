@@ -1,6 +1,8 @@
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types/navigation';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Typography from '../components/ui/Typography';
+import Button from '../components/ui/buttons/Button';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,33 +11,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
   },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-  linkText: {
-    color: '#2e78b7',
-    fontSize: 14,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
 });
 
 interface IProps {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'NotFound', undefined>;
+  navigation: NativeStackNavigationProp<RootStackParamList, 'notFound', undefined>;
 }
 
 const NotFoundScreen = (props: IProps) => {
   const { navigation } = props;
 
+  // TODO: Add i18n
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>This screen doesnt exist.</Text>
-      <TouchableOpacity onPress={() => navigation.replace('Root')} style={styles.link}>
-        <Text style={styles.linkText}>Go to home screen!</Text>
-      </TouchableOpacity>
+      <Typography variant='subtitle1'>{`This screen does'nt exist.`}</Typography>
+
+      <Button variant='text' onPress={() => navigation.replace('root')}>
+        Go to home screen!
+      </Button>
     </View>
   );
 };

@@ -1,3 +1,12 @@
 {
-  "helloWorld": "Hello World"
+  "back": "Back",
+  "compareDrivers": "Compare Drivers",
+  "compareParts": "Compare Parts",
+  "drivers": "Drivers",
+  "helloWorld": "Hello World",
+  "home": "Home",
+  "notFound": "Oops!",
+  "parts": "Parts",
+  "root": "Home",
+  "settings": "Settings"
 }

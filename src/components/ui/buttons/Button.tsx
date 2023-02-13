@@ -32,7 +32,7 @@ const Button = (props: TProps) => {
     fullWidth = false,
     color = 'primary',
     elevation = 3,
-    variant = 'elevated',
+    variant = 'contained',
     size = 'medium',
     ...other
   } = props;
@@ -44,7 +44,7 @@ const Button = (props: TProps) => {
     <View style={[styles.container, theme.shadows[elevation]]}>
       <Pressable
         style={({ pressed }) => {
-          const { button, elevatedVariant, outlinedVariant, textVariant, buttonLarge, buttonMedium, buttonSmall } =
+          const { button, containedVariant, outlinedVariant, textVariant, buttonLarge, buttonMedium, buttonSmall } =
             buttonStyles({
               color,
               pressed,
@@ -54,8 +54,8 @@ const Button = (props: TProps) => {
           const buttonStyle: StyleProp<ViewStyle>[] = [button];
 
           switch (variant) {
-            case 'elevated':
-              buttonStyle.push(elevatedVariant, theme.shadows[elevation]);
+            case 'contained':
+              buttonStyle.push(containedVariant, theme.shadows[elevation]);
               break;
 
             case 'outlined':
@@ -92,7 +92,7 @@ const Button = (props: TProps) => {
         {...other}
       >
         <Typography
-          style={[styles.text, variant !== 'elevated' && styles.buttonVariantText]}
+          style={[styles.text, variant !== 'contained' && styles.buttonVariantText]}
           variant='button'
           {...typographyProps}
         >

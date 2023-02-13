@@ -4,21 +4,22 @@ import { Pressable, ScrollView, View } from 'react-native';
 import { useSettings } from '../../context/SettingsContext';
 import { useTheme } from '../../context/theme/ThemeContext';
 import { useTranslation } from 'react-i18next';
-import Button from '../../components/ui/button/Button';
+import Button from '../../components/ui/buttons/Button';
 import IconsaxIcon from '../../lib/IconsaxIcon';
 import Typography from '../../components/ui/Typography';
+import { useNavigation } from '@react-navigation/native';
 
 const TabHomeScreen = () => {
   const {
     theme: {
       palette: { mode, primary, secondary },
-      shadows,
       spacing,
     },
   } = useTheme();
 
   const { t, i18n } = useTranslation();
   const { settings, dispatch } = useSettings();
+  const navigate = useNavigation();
 
   return (
     // eslint-disable-next-line react-native/no-inline-styles
@@ -33,6 +34,10 @@ const TabHomeScreen = () => {
               justifyContent: 'space-between',
             }}
           >
+            <Button style={{ marginVertical: spacing(2) }} onPress={() => navigate.navigate('notFound')} color='info'>
+              Navigate
+            </Button>
+
             <Button
               style={{ marginVertical: spacing(2) }}
               onPress={() => i18n.changeLanguage(i18n.language === LANGUAGES.EN_US ? LANGUAGES.PT_PT : LANGUAGES.EN_US)}

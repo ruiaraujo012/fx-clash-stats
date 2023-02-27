@@ -1,3 +1,4 @@
+import { IExtras, defaultExtras } from './extras';
 import { IPalette, TPaletteMode, getDefaultPalette } from './palette';
 import { IShape, defaultShape } from './shape';
 import { ITypography, defaultTypography } from './typography';
@@ -11,6 +12,7 @@ export interface ITheme {
   zIndex: IZIndex;
   shape: IShape;
   spacing: (value: number) => number;
+  extras: IExtras;
   // transitions: ITransitions;
 }
 
@@ -18,6 +20,7 @@ export const createTheme = (mode: TPaletteMode): ITheme => {
   const palette = getDefaultPalette(mode);
 
   return {
+    extras: defaultExtras,
     palette: getDefaultPalette(mode),
     shadows: getDefaultShadows(palette),
     shape: defaultShape,

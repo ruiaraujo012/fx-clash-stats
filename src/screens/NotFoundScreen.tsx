@@ -1,8 +1,7 @@
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types/navigation';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import Typography from '../components/ui/Typography';
-import Button from '../components/ui/buttons/Button';
+import { StyleSheet, View } from 'react-native';
+import { Typography, Button } from '../components/ui';
 
 const styles = StyleSheet.create({
   container: {

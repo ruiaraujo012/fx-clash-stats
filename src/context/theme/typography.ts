@@ -3,7 +3,7 @@ import { TextStyle } from 'react-native';
 
 export type TTypographyStyle = TextStyle;
 
-export type TVariant =
+export type TTypographyVariant =
   | 'h1'
   | 'h2'
   | 'h3'
@@ -23,7 +23,7 @@ export type TFontStyle = Required<{
   fontSize: number;
 }>;
 
-export interface ITypography extends Record<TVariant, TTypographyStyle>, TFontStyle {}
+export interface ITypography extends Record<TTypographyVariant, TTypographyStyle>, TFontStyle {}
 
 export const defaultTypography = (palette: IPalette): ITypography => {
   return {

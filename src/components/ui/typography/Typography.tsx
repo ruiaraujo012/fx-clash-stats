@@ -1,17 +1,15 @@
-import { TVariant } from '../../context/theme/typography';
+import { TTypographyVariant } from '../../../context/theme/typography';
 import { Text } from 'react-native';
-import { useTheme } from '../../context/theme/ThemeContext';
+import { useTheme } from '../../../context/theme/ThemeContext';
 
 export type TTypographyProps = Text['props'] & {
-  variant?: TVariant;
+  variant?: TTypographyVariant;
 };
 
-const Typography = (props: TTypographyProps) => {
+export const Typography = (props: TTypographyProps) => {
   const { variant = 'body1', style, ...other } = props;
 
   const { theme } = useTheme();
 
   return <Text {...other} style={[theme.typography[variant], style]} />;
 };
-
-export default Typography;

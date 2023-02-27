@@ -1,6 +1,7 @@
 import { Cup, EmojiHappy, InfoCircle, Setting2 } from 'iconsax-react-native';
 import { Pressable } from 'react-native';
 import { RootTabParamList } from '../types/navigation';
+import { Typography } from '../components/ui';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { normalizeKey } from '../i18n/helpers';
 import { useTheme } from '../context/theme/ThemeContext';
@@ -11,7 +12,6 @@ import TabComparePartsScreen from '../screens/tabs/TabComparePartsScreen';
 import TabDriversScreen from '../screens/tabs/TabDriversScreen';
 import TabHomeScreen from '../screens/tabs/TabHomeScreen';
 import TabPartsScreen from '../screens/tabs/TabPartsScreen';
-import Typography from '../components/ui/Typography';
 
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.

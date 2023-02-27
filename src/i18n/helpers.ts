@@ -4,9 +4,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // enUS
 import enUSCommon from './locales/enUS/common.json';
+import enUSSettings from './locales/enUS/settings.json';
 
 // ptPT
 import ptPTCommon from './locales/ptPT/common.json';
+import ptPTSettings from './locales/ptPT/settings.json';
 
 export const LANGUAGES = {
   EN_US: 'en-US',
@@ -15,14 +17,17 @@ export const LANGUAGES = {
 
 export const NAMESPACES = {
   COMMON: 'common',
+  SETTINGS: 'settings',
 } as const;
 
 export const PT_PT_RESOURCES = {
   [NAMESPACES.COMMON]: ptPTCommon,
+  [NAMESPACES.SETTINGS]: ptPTSettings,
 } as const;
 
 export const EN_US_RESOURCES = {
   [NAMESPACES.COMMON]: enUSCommon,
+  [NAMESPACES.SETTINGS]: enUSSettings,
 } as const;
 
 export const languages = [LANGUAGES.EN_US, LANGUAGES.PT_PT] as const;

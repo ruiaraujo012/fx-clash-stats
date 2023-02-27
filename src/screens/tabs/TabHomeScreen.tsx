@@ -1,12 +1,11 @@
 import { EmojiHappy } from 'iconsax-react-native';
 import { LANGUAGES } from '../../i18n/helpers';
-import { Pressable, ScrollView, View } from 'react-native';
-import { useSettings } from '../../context/SettingsContext';
+import { ScrollView, View } from 'react-native';
+import { useSettings } from '../../features/settings';
 import { useTheme } from '../../context/theme/ThemeContext';
 import { useTranslation } from 'react-i18next';
-import Button from '../../components/ui/buttons/Button';
 import IconsaxIcon from '../../lib/IconsaxIcon';
-import Typography from '../../components/ui/Typography';
+import { Button, Typography } from '../../components/ui';
 import { useNavigation } from '@react-navigation/native';
 
 const TabHomeScreen = () => {

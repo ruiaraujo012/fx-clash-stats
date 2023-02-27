@@ -2,7 +2,7 @@ import './src/i18n/i18n';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { SettingsProvider } from './src/context/SettingsContext';
+import { SettingsProvider } from './src/features/settings';
 import Root from './src/Root';
 import useCachedResources from './src/hooks/useCachedResources';
 

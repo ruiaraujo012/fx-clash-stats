@@ -4,7 +4,7 @@ interface IProps {
   options: any[];
 }
 
-const Select = (props: IProps) => {
+export const Select = (props: IProps) => {
   const { options } = props;
 
   return (
@@ -13,5 +13,3 @@ const Select = (props: IProps) => {
     </View>
   );
 };
-
-export default Select;

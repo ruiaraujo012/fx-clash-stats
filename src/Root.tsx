@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider } from './context/theme/ThemeContext';
 import { useMemo } from 'react';
-import { useSettings } from './context/SettingsContext';
+import { useSettings } from './features/settings';
 import Navigation from './navigation/Navigation';
 import useColorScheme from './hooks/useColorScheme';
 

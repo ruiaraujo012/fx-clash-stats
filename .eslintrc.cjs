@@ -20,7 +20,7 @@ module.exports = {
         skip: ['Typography', 'Button'],
       },
     ],
-    'react-native/no-unused-styles': ['warn'],
+    'react-native/no-unused-styles': 0,
     'react-native/sort-styles': [
       'warn',
       'asc',

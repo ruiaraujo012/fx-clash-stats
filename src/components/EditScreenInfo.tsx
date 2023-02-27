@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import Typography from './ui/Typography';
+import { Typography } from './ui';
 
 const styles = StyleSheet.create({
   codeHighlightContainer: {

@@ -104,3 +104,5 @@ export const Button = (props: TProps) => {
     </View>
   );
 };
+
+Button.displayName = 'Button';

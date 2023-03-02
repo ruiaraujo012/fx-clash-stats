@@ -1,7 +1,7 @@
 import { Settings } from '../features/settings';
 import { View } from 'react-native';
 
-const SettingsScreen = () => {
+const Page = () => {
   return (
     <View>
       <Settings />
@@ -9,4 +9,4 @@ const SettingsScreen = () => {
   );
 };
 
-export default SettingsScreen;
+export default Page;

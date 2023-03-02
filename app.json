@@ -15,9 +15,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -29,6 +27,7 @@
       "package": "com.ruiaraujo012.fxcs"
     },
     "web": {
+      "bundler": "metro",
       "favicon": "./src/assets/images/favicon.png"
     },
     "extra": {

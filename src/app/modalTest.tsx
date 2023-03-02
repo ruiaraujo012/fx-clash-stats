@@ -1,8 +1,6 @@
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../types/navigation';
+import { useSearchParams } from 'expo-router';
 import EditScreenInfo from '../components/EditScreenInfo';
 
 const styles = StyleSheet.create({
@@ -22,16 +20,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const ModalScreen = (props: NativeStackScreenProps<RootStackParamList, 'modal'>) => {
-  const { route } = props;
+const Page = () => {
+  const params = useSearchParams();
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Modal</Text>
       <View style={styles.separator} />
-      <EditScreenInfo path='/screens/ModalScreen.tsx' />
+      <EditScreenInfo path='/app/modalTest.tsx' />
 
-      <Text>{route?.params?.paramExample ?? 'no'}</Text>
+      <Text>{params?.paramExample ?? 'no'}</Text>
 
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
@@ -39,4 +37,4 @@ const ModalScreen = (props: NativeStackScreenProps<RootStackParamList, 'modal'>)
   );
 };
 
-export default ModalScreen;
+export default Page;

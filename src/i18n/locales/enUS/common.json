@@ -3,10 +3,12 @@
   "compareDrivers": "Compare Drivers",
   "compareParts": "Compare Parts",
   "drivers": "Drivers",
+  "goToHomeScreen": "Go to home screen!",
   "helloWorld": "Hello World",
   "home": "Home",
+  "index": "Home",
   "notFound": "Oops!",
   "parts": "Parts",
-  "root": "Home",
+  "screenNotExists": "This screen does not exist.",
   "settings": "Settings"
 }

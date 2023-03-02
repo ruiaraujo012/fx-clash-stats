@@ -3,10 +3,12 @@
   "compareDrivers": "Comparar Pilotos",
   "compareParts": "Comparar Peças",
   "drivers": "Pilotos",
+  "goToHomeScreen": "Ir para o ecrã principal!",
   "helloWorld": "Olá mundo",
   "home": "Início",
+  "index": "Início",
   "notFound": "Oops!",
   "parts": "Peças",
-  "root": "Início",
+  "screenNotExists": "Este ecrã não existe.",
   "settings": "Definições"
 }

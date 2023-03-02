@@ -1,24 +1,24 @@
-import { EmojiHappy } from 'iconsax-react-native';
-import { LANGUAGES } from '../../i18n/helpers';
+import { Button, Typography } from '../../components/ui';
+import { useRouter } from 'expo-router';
 import { ScrollView, View } from 'react-native';
-import { useSettings } from '../../features/settings';
 import { useTheme } from '../../context/theme/ThemeContext';
 import { useTranslation } from 'react-i18next';
+import { useSettings } from '../../features/settings';
+import { LANGUAGES } from '../../i18n/helpers';
 import IconsaxIcon from '../../lib/IconsaxIcon';
-import { Button, Typography } from '../../components/ui';
-import { useNavigation } from '@react-navigation/native';
+import { EmojiHappy } from 'iconsax-react-native';
 
-const TabHomeScreen = () => {
+const Page = () => {
   const {
     theme: {
-      palette: { mode, primary, secondary },
+      palette: { mode, primary },
       spacing,
     },
   } = useTheme();
 
   const { t, i18n } = useTranslation();
   const { settings, dispatch } = useSettings();
-  const navigate = useNavigation();
+  const router = useRouter();
 
   return (
     // eslint-disable-next-line react-native/no-inline-styles
@@ -33,7 +33,7 @@ const TabHomeScreen = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Button style={{ marginVertical: spacing(2) }} onPress={() => navigate.navigate('notFound')} color='info'>
+            <Button style={{ marginVertical: spacing(2) }} onPress={() => router.push('notFound')} color='info'>
               Navigate
             </Button>
 
@@ -95,4 +95,4 @@ const TabHomeScreen = () => {
   );
 };
 
-export default TabHomeScreen;
+export default Page;

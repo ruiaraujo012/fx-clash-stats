@@ -31,7 +31,7 @@ export const Button = (props: TProps) => {
     typographyProps,
     fullWidth = false,
     color = 'primary',
-    elevation = 3,
+    elevation = 0,
     variant = 'contained',
     size = 'medium',
     ...other

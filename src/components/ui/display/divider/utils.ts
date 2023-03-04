@@ -1,6 +1,6 @@
-import { ITheme } from '../../../context/theme/theme';
+import { ITheme } from '../../../../context/theme/theme';
 import { StyleSheet } from 'react-native';
-import { TPaletteColor } from '../../../context/theme/palette';
+import { TPaletteColor } from '../../../../context/theme/palette';
 
 export type TDividerColor = TPaletteColor | 'default';
 // 'inset'

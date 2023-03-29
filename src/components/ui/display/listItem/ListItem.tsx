@@ -1,9 +1,12 @@
 import { ArrowRight2 } from 'iconsax-react-native';
-import { Pressable, PressableProps, View, ViewProps } from 'react-native';
-import { TTypographyProps, Typography } from '../../typography/Typography';
+import { Pressable, View } from 'react-native';
+import { Typography } from '../../typography/Typography';
 import { createListItemStyles } from './utils';
 import { useTheme } from '../../../../context/theme/ThemeContext';
-import IconsaxIcon, { TIconsaxProps } from '../../../../lib/IconsaxIcon';
+import IconsaxIcon from '../../../../lib/IconsaxIcon';
+import type { PressableProps, ViewProps } from 'react-native';
+import type { TIconsaxProps } from '../../../../lib/IconsaxIcon';
+import type { TTypographyProps } from '../../typography/Typography';
 
 export interface IListItemProps {
   label: string;
@@ -44,14 +47,24 @@ export const ListItem = (props: IListItemProps) => {
     >
       <Typography {...typographyProps}>{label}</Typography>
 
-      <View style={[styles.rightContainer, rightContainerStyle]} {...otherRightContainerProps}>
+      <View
+        style={[styles.rightContainer, rightContainerStyle]}
+        {...otherRightContainerProps}
+      >
         {value && (
-          <Typography style={[styles.value, valueStyle]} {...otherValueProps}>
+          <Typography
+            style={[styles.value, valueStyle]}
+            {...otherValueProps}
+          >
             {value}
           </Typography>
         )}
 
-        <IconsaxIcon Icon={Icon} color={theme.palette.secondary.main} {...otherIconProps} />
+        <IconsaxIcon
+          Icon={Icon}
+          color={theme.palette.secondary.main}
+          {...otherIconProps}
+        />
       </View>
     </Pressable>
   );

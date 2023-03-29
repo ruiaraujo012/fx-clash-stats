@@ -1,9 +1,15 @@
-import { IExtras, defaultExtras } from './extras';
-import { IPalette, TPaletteMode, getDefaultPalette } from './palette';
-import { IShape, defaultShape } from './shape';
-import { ITypography, defaultTypography } from './typography';
-import { IZIndex, defaultZIndex } from './zIndex';
-import { TShadows, getDefaultShadows } from './shadows';
+import { defaultExtras } from './extras';
+import { defaultShape } from './shape';
+import { defaultTypography } from './typography';
+import { defaultZIndex } from './zIndex';
+import { getDefaultPalette } from './palette';
+import { getDefaultShadows } from './shadows';
+import type { IExtras} from './extras';
+import type { IPalette, TPaletteMode} from './palette';
+import type { IShape} from './shape';
+import type { ITypography} from './typography';
+import type { IZIndex} from './zIndex';
+import type { TShadows} from './shadows';
 
 export interface ITheme {
   palette: IPalette;

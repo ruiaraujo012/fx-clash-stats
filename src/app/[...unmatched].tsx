@@ -1,6 +1,6 @@
 import { Button, Typography } from '../components/ui';
+import { Stack, useRouter } from 'expo-router';
 import { StyleSheet, View } from 'react-native';
-import { Tabs, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
 const styles = StyleSheet.create({
@@ -19,7 +19,7 @@ const Unmatched = () => {
 
   return (
     <View style={styles.container}>
-      <Tabs.Screen options={{ title: 'notFound' }} />
+      <Stack.Screen options={{ title: 'notFound' }} />
 
       <Typography variant='h6'>{t('screenNotExists')}</Typography>
 

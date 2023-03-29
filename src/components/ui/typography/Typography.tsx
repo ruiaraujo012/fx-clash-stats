@@ -1,6 +1,6 @@
-import { TTypographyVariant } from '../../../context/theme/typography';
 import { Text } from 'react-native';
 import { useTheme } from '../../../context/theme/ThemeContext';
+import type { TTypographyVariant } from '../../../context/theme/typography';
 
 export type TTypographyProps = Text['props'] & {
   variant?: TTypographyVariant;

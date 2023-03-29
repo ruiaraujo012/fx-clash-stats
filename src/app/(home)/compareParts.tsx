@@ -22,14 +22,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const Page = () => {
-  return (
+const Page = () => (
     <View style={styles.container}>
       <View style={styles.main}>
         <Text style={styles.title}>Compare Parts Tab</Text>
       </View>
     </View>
   );
-};
 
 export default Page;

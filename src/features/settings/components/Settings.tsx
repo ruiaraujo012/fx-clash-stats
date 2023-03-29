@@ -1,30 +1,15 @@
-import { Divider } from '../../../components/ui';
-import { ITheme } from '../../../context/theme/theme';
-import { StyleSheet, View } from 'react-native';
-import { useTheme } from '../../../context/theme/ThemeContext';
+import { List, ListItem } from '../../../components/ui';
 import { useTranslation } from 'react-i18next';
-import SettingItem from './SettingItem';
-
-const styles = (theme: ITheme) =>
-  StyleSheet.create({
-    container: {
-      backgroundColor: theme.palette.background.paper,
-      borderRadius: theme.shape.borderRadius,
-      margin: theme.spacing(3),
-    },
-  });
+import ChangeAppearanceModal from './changeAppearance/ChangeAppearanceModal';
+import React from 'react';
 
 export const Settings = () => {
   const { t } = useTranslation(['settings']);
-  const { theme } = useTheme();
-
-  const { container } = styles(theme);
 
   return (
-    <View style={container}>
-      <SettingItem label={t('settings:language')} />
-      <Divider />
-      <SettingItem label={t('settings:appearance')} />
-    </View>
+    <List>
+      <ListItem label={t('settings:language')} onPress={() => console.log('press language')} />
+      <ChangeAppearanceModal />
+    </List>
   );
 };

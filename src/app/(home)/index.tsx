@@ -33,7 +33,11 @@ const Page = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Button style={{ marginVertical: spacing(2) }} onPress={() => router.push('notFound')} color='info'>
+            <Button
+              style={{ marginVertical: spacing(2) }}
+              onPress={() => router.push('notFound')}
+              color='info'
+            >
               Navigate
             </Button>
 
@@ -68,7 +72,11 @@ const Page = () => {
               Change to System Theme
             </Button>
 
-            <IconsaxIcon Icon={EmojiHappy} color={primary.main} size={54} />
+            <IconsaxIcon
+              Icon={EmojiHappy}
+              color={primary.main}
+              size={54}
+            />
           </View>
 
           <View style={{ flexDirection: 'column', alignItems: 'center' }}>

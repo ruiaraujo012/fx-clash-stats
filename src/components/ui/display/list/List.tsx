@@ -1,7 +1,8 @@
-import { ReactNode } from 'react';
-import { View, ViewProps } from 'react-native';
+import { View } from 'react-native';
 import { createListStyles } from './utils';
 import { useTheme } from '../../../../context/theme/ThemeContext';
+import type { ReactNode } from 'react';
+import type { ViewProps } from 'react-native';
 
 export type TListProps = ViewProps & {
   children: ReactNode;

@@ -1,10 +1,16 @@
-import { Pressable, PressableProps, PressableStateCallbackType, StyleProp, View, ViewStyle } from 'react-native';
-import { ReactElement, useCallback } from 'react';
-import { TButtonSize, TButtonVariant, buttonStyles } from './utils';
-import { TElevation } from '../../../context/theme/shadows';
-import { TPaletteColor } from '../../../context/theme/palette';
-import { TTypographyProps, Typography } from '../typography/Typography';
+import { Pressable, View } from 'react-native';
+import { Typography } from '../typography/Typography';
+import { buttonStyles } from './utils';
+import { useCallback } from 'react';
 import { useTheme } from '../../../context/theme/ThemeContext';
+import IconsaxIcon from '../../../lib/IconsaxIcon';
+import type { Icon, IconProps } from 'iconsax-react-native';
+import type { PressableProps, PressableStateCallbackType, StyleProp, ViewStyle } from 'react-native';
+import type { ReactElement } from 'react';
+import type { TButtonSize, TButtonVariant } from './utils';
+import type { TElevation } from '../../../context/theme/shadows';
+import type { TPaletteColor } from '../../../context/theme/palette';
+import type { TTypographyProps } from '../typography/Typography';
 
 interface IButtonProps {
   typographyProps?: TTypographyProps;
@@ -13,6 +19,10 @@ interface IButtonProps {
   elevation?: TElevation;
   variant?: TButtonVariant;
   size?: TButtonSize;
+  StartIcon?: Icon;
+  startIconProps?: IconProps;
+  EndIcon?: Icon;
+  endIconProps?: IconProps;
 }
 
 interface IBaseProps {
@@ -34,6 +44,10 @@ export const Button = (props: TProps) => {
     elevation = 0,
     variant = 'contained',
     size = 'medium',
+    startIconProps,
+    StartIcon,
+    endIconProps,
+    EndIcon,
     ...other
   } = props;
 
@@ -92,14 +106,37 @@ export const Button = (props: TProps) => {
 
   return (
     <View style={[styles.container, theme.shadows[elevation]]}>
-      <Pressable style={handleCreateStyle} {...other}>
-        <Typography
-          style={[styles.text, variant !== 'contained' && styles.buttonVariantText]}
-          variant='button'
-          {...typographyProps}
-        >
-          {children}
-        </Typography>
+      <Pressable
+        style={handleCreateStyle}
+        {...other}
+      >
+        <View style={styles.icon}>
+          {StartIcon && (
+            <IconsaxIcon
+              color={theme.palette[color].main}
+              size={20}
+              {...startIconProps}
+              Icon={StartIcon}
+            />
+          )}
+
+          <Typography
+            style={[styles.text, variant !== 'contained' && styles.buttonVariantText]}
+            variant='button'
+            {...typographyProps}
+          >
+            {children}
+          </Typography>
+
+          {EndIcon && (
+            <IconsaxIcon
+              color={theme.palette[color].main}
+              size={20}
+              {...endIconProps}
+              Icon={EndIcon}
+            />
+          )}
+        </View>
       </Pressable>
     </View>
   );

@@ -1,6 +1,6 @@
-import { LanguageDetectorAsyncModule } from 'i18next';
 import { NativeModules, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import type { LanguageDetectorAsyncModule } from 'i18next';
 
 // enUS
 import enUSCommon from './locales/enUS/common.json';
@@ -62,8 +62,7 @@ export const normalizeKey = (key: string) => key as unknown as TemplateStringsAr
 
 const LANGUAGE_STORE_KEY = 'I18NEXT_LANGUAGE' as const;
 
-export const RNLanguageDetector = (): LanguageDetectorAsyncModule => {
-  return {
+export const RNLanguageDetector = (): LanguageDetectorAsyncModule => ({
     async: true,
     cacheUserLanguage: async (language) => {
       try {
@@ -112,7 +111,6 @@ export const RNLanguageDetector = (): LanguageDetectorAsyncModule => {
     },
     // init: () => {},
     type: 'languageDetector',
-  };
-};
+  });
 
 export default RNLanguageDetector;

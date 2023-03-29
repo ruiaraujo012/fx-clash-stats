@@ -1,6 +1,8 @@
-import { TDividerColor, TDividerVariant, createDividerStyles } from './utils';
-import { View, ViewProps } from 'react-native';
+import { View } from 'react-native';
+import { createDividerStyles } from './utils';
 import { useTheme } from '../../../../context/theme/ThemeContext';
+import type { TDividerColor, TDividerVariant} from './utils';
+import type { ViewProps } from 'react-native';
 
 export type TDividerProps = ViewProps & {
   variant?: TDividerVariant;

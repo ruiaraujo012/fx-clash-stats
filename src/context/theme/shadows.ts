@@ -1,4 +1,4 @@
-import { IPalette } from './palette';
+import type { IPalette } from './palette';
 
 export type TElevation =
   | 0

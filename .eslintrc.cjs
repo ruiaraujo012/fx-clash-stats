@@ -13,6 +13,7 @@ module.exports = {
   },
   plugins: ['react-native'],
   rules: {
+    'react/prop-types': 'off',
     'react-native/no-inline-styles': 2,
     'react-native/no-raw-text': [
       'error',

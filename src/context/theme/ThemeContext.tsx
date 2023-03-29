@@ -1,8 +1,10 @@
-import { ITheme, createTheme } from './theme';
-import { ReactNode, createContext, useContext, useEffect, useMemo, useReducer } from 'react';
-import { TPaletteMode } from './palette';
+import { createContext, useContext, useEffect, useMemo, useReducer } from 'react';
+import { createTheme } from './theme';
 import _merge from 'lodash.merge';
 import produce from 'immer';
+import type { ITheme} from './theme';
+import type { ReactNode} from 'react';
+import type { TPaletteMode } from './palette';
 
 /**
  * Types

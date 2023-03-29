@@ -1,16 +1,23 @@
-import { ITheme } from '../../../context/theme/theme';
 import { StyleSheet } from 'react-native';
-import { TPaletteColor } from '../../../context/theme/palette';
 import { hexToRGBA } from '../../../context/theme/utils';
+import type { ITheme } from '../../../context/theme/theme';
+import type { TPaletteColor } from '../../../context/theme/palette';
 
-interface IStylesProps {
+// ===================================================
+// ===                    Button                   ===
+// ===================================================
+
+export type TButtonVariant = 'outlined' | 'text' | 'contained';
+export type TButtonSize = 'small' | 'medium' | 'large';
+
+interface IButtonStylesProps {
   theme: ITheme;
   pressed?: boolean;
   fullWidth?: boolean;
   color: TPaletteColor;
 }
 
-export const buttonStyles = (props: IStylesProps) => {
+export const buttonStyles = (props: IButtonStylesProps) => {
   const {
     theme: {
       palette,
@@ -28,6 +35,7 @@ export const buttonStyles = (props: IStylesProps) => {
       borderRadius,
       flexDirection: 'row',
       justifyContent: 'center',
+      padding: spacing(3),
     },
     buttonLarge: {
       padding: spacing(4),
@@ -47,6 +55,12 @@ export const buttonStyles = (props: IStylesProps) => {
     container: {
       flexDirection: fullWidth ? 'column' : 'row',
     },
+    icon: {
+      alignItems: 'center',
+      display: 'flex',
+      flexDirection: 'row',
+      gap: spacing(1),
+    },
     outlinedVariant: {
       backgroundColor: pressed ? hexToRGBA(palette[color].main, palette.action.hoverOpacity) : 'transparent',
       borderColor: palette[color].main,
@@ -55,6 +69,7 @@ export const buttonStyles = (props: IStylesProps) => {
     },
     text: {
       color: palette[color].contrastText,
+      textAlignVertical: 'center',
     },
     textVariant: {
       backgroundColor: pressed ? hexToRGBA(palette[color].main, palette.action.hoverOpacity) : 'transparent',
@@ -62,5 +77,34 @@ export const buttonStyles = (props: IStylesProps) => {
   });
 };
 
-export type TButtonVariant = 'outlined' | 'text' | 'contained';
-export type TButtonSize = 'small' | 'medium' | 'large';
+// ===================================================
+// ===                  Icon Button                ===
+// ===================================================
+
+export type TIconButtonSize = 'small' | 'medium' | 'large';
+
+interface IIconButtonStylesProps {
+  theme: ITheme;
+  pressed?: boolean;
+  color: TPaletteColor;
+}
+
+export const iconButtonStyles = (props: IIconButtonStylesProps) => {
+  const {
+    theme: { palette },
+    pressed,
+  } = props;
+
+  return StyleSheet.create({
+    iconButton: {
+      alignItems: 'center',
+      backgroundColor: pressed ? palette.action.hover : 'transparent',
+      borderRadius: 40 / 2,
+      display: 'flex',
+      flexDirection: 'row',
+      height: 40,
+      justifyContent: 'center',
+      width: 40,
+    },
+  });
+};

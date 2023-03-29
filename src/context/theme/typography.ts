@@ -1,5 +1,5 @@
-import { IPalette } from './palette';
-import { TextStyle } from 'react-native';
+import type { IPalette } from './palette';
+import type { TextStyle } from 'react-native';
 
 export type TTypographyStyle = TextStyle;
 
@@ -25,8 +25,7 @@ export type TFontStyle = Required<{
 
 export interface ITypography extends Record<TTypographyVariant, TTypographyStyle>, TFontStyle {}
 
-export const defaultTypography = (palette: IPalette): ITypography => {
-  return {
+export const defaultTypography = (palette: IPalette): ITypography => ({
     body1: {
       color: palette.text.primary,
       fontFamily: 'Poppins',
@@ -110,5 +109,4 @@ export const defaultTypography = (palette: IPalette): ITypography => {
       fontSize: 14,
       letterSpacing: 1.0714,
     },
-  };
-};
+  });

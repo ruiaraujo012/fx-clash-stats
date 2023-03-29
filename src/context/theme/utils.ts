@@ -9,6 +9,7 @@ export const hexToRGBA = (hexCode: string, opacity: number): string => {
 
   newHexCode = newHexCode.replace(
     shorthandRegex,
+    // eslint-disable-next-line max-params
     (_, red: string, green: string, blue: string) => `${red}${red}${green}${green}${blue}${blue}`,
   );
 

@@ -1,12 +1,10 @@
 import { Settings } from '../features/settings';
 import { View } from 'react-native';
 
-const Page = () => {
-  return (
+const Page = () => (
     <View>
       <Settings />
     </View>
   );
-};
 
 export default Page;

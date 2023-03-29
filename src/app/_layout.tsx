@@ -6,41 +6,29 @@ import { SettingsProvider, useSettings } from '../features/settings';
 import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider } from '../context/theme/ThemeContext';
-import { Typography } from '../components/ui';
 import { getReactNavigationTheme } from '../context/theme/palette';
-import { normalizeKey } from '../i18n/helpers';
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
+import StackHeader from '../components/common/Headers/StackHeader';
 import useCachedResources from '../hooks/useCachedResources';
 import useColorScheme from '../hooks/useColorScheme';
 
 const Root = () => {
-  const { t } = useTranslation();
-
   const {
     settings: { themeMode },
   } = useSettings();
 
   const colorScheme = useColorScheme();
 
-  const mode = useMemo(() => {
-    return themeMode === 'system' ? colorScheme : themeMode;
-  }, [colorScheme, themeMode]);
+  const mode = useMemo(() => (themeMode === 'system' ? colorScheme : themeMode), [colorScheme, themeMode]);
+
+  const navigationTheme = getReactNavigationTheme(mode);
 
   return (
-    <NavigationThemeProvider value={getReactNavigationTheme(mode)}>
+    <NavigationThemeProvider value={navigationTheme}>
       <ThemeProvider mode={mode}>
-        {/* <Navigation /> */}
         <Stack
           screenOptions={{
-            headerBackTitle: t('back'),
-            headerTitle: (props) => {
-              // eslint-disable-next-line react/prop-types
-              if (!props.children.match(/\((.*?)\)/) && !props.children.match(/\[(.*?)\]/)) {
-                // eslint-disable-next-line react/prop-types
-                return <Typography>{t(normalizeKey(props.children))}</Typography>;
-              }
-            },
+            header: (props) => <StackHeader {...props} />,
           }}
         >
           <Stack.Screen

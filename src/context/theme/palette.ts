@@ -1,5 +1,6 @@
-import { DarkTheme, DefaultTheme, Theme as ReactNavigationTheme } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 import _merge from 'lodash.merge';
+import type { Theme as ReactNavigationTheme } from '@react-navigation/native';
 
 export type TPaletteMode = 'dark' | 'light';
 

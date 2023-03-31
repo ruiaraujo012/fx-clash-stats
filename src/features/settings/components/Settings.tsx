@@ -1,15 +1,11 @@
-import { List, ListItem } from '../../../components/ui';
-import { useTranslation } from 'react-i18next';
-import ChangeAppearanceModal from './changeAppearance/ChangeAppearanceModal';
+import { List } from '../../../components/ui';
+import ChangeAppearanceListItem from './changeAppearance/ChangeAppearanceListItem';
+import ChangeLanguageListItem from './changeLanguage/ChangeLanguageListItem';
 import React from 'react';
 
-export const Settings = () => {
-  const { t } = useTranslation(['settings']);
-
-  return (
-    <List>
-      <ListItem label={t('settings:language')} onPress={() => console.log('press language')} />
-      <ChangeAppearanceModal />
-    </List>
-  );
-};
+export const Settings = () => (
+  <List>
+    <ChangeLanguageListItem />
+    <ChangeAppearanceListItem />
+  </List>
+);

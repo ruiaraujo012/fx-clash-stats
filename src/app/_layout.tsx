@@ -28,6 +28,7 @@ const Root = () => {
       <ThemeProvider mode={mode}>
         <Stack
           screenOptions={{
+            animation: 'fade_from_bottom',
             header: (props) => <StackHeader {...props} />,
           }}
         >

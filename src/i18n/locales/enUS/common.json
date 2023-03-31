@@ -2,13 +2,16 @@
   "back": "Back",
   "compareDrivers": "Compare Drivers",
   "compareParts": "Compare Parts",
+  "dark": "Dark",
   "drivers": "Drivers",
   "goToHomeScreen": "Go to home screen!",
   "helloWorld": "Hello World",
   "home": "Home",
   "index": "Home",
+  "light": "Light",
   "notFound": "Oops!",
   "parts": "Parts",
   "screenNotExists": "This screen does not exist.",
-  "settings": "Settings"
+  "settings": "Settings",
+  "system": "System"
 }

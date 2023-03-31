@@ -17,7 +17,7 @@ const Page = () => {
   } = useTheme();
 
   const { t, i18n } = useTranslation();
-  const { settings, dispatch } = useSettings();
+  const { settings } = useSettings();
   const router = useRouter();
 
   return (
@@ -38,38 +38,7 @@ const Page = () => {
               onPress={() => router.push('notFound')}
               color='info'
             >
-              Navigate
-            </Button>
-
-            <Button
-              style={{ marginVertical: spacing(2) }}
-              onPress={() => i18n.changeLanguage(i18n.language === LANGUAGES.EN_US ? LANGUAGES.PT_PT : LANGUAGES.EN_US)}
-              color='info'
-            >
-              Change Language
-            </Button>
-
-            <Button
-              style={{ marginVertical: spacing(2) }}
-              onPress={() => dispatch({ payload: 'light', type: 'change_theme_mode' })}
-            >
-              Change to Light Theme
-            </Button>
-
-            <Button
-              style={{ marginVertical: spacing(2) }}
-              onPress={() => dispatch({ payload: 'dark', type: 'change_theme_mode' })}
-              color='secondary'
-            >
-              Change to Dark Theme
-            </Button>
-
-            <Button
-              style={{ marginVertical: spacing(2) }}
-              onPress={() => dispatch({ payload: 'system', type: 'change_theme_mode' })}
-              color='warning'
-            >
-              Change to System Theme
+              Navigate to missing page
             </Button>
 
             <IconsaxIcon

@@ -77,7 +77,7 @@ export const ModalHeader = (props: IProps) => {
         <View style={styles.right}>
           <IconButton
             Icon={CloseCircle}
-            color='primary'
+            color='secondary'
             onPress={onPressClose}
           />
         </View>

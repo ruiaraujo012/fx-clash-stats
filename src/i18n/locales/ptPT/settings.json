@@ -1,4 +1,8 @@
 {
   "appearance": "Aparência",
-  "language": "Linguagem"
+  "language": "Linguagem",
+  "languages": {
+    "en-US": "Inglês",
+    "pt-PT": "Português"
+  }
 }

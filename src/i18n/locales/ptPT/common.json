@@ -2,13 +2,16 @@
   "back": "Voltar",
   "compareDrivers": "Comparar Pilotos",
   "compareParts": "Comparar Peças",
+  "dark": "Escuro",
   "drivers": "Pilotos",
   "goToHomeScreen": "Ir para o ecrã principal!",
   "helloWorld": "Olá mundo",
   "home": "Início",
   "index": "Início",
+  "light": "Claro",
   "notFound": "Oops!",
   "parts": "Peças",
   "screenNotExists": "Este ecrã não existe.",
-  "settings": "Definições"
+  "settings": "Definições",
+  "system": "Sistema"
 }

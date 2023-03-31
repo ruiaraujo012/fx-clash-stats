@@ -1,4 +1,8 @@
 {
   "appearance": "Appearance",
-  "language": "Language"
+  "language": "Language",
+  "languages": {
+    "en-US": "English",
+    "pt-PT": "Portuguese"
+  }
 }
